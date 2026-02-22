@@ -1,0 +1,47 @@
+@startuml
+title Seedling Management System - Component Structure
+
+package "Seedling Management System" {
+
+    package "Plant Module" {
+        [Plant Controller]
+        [Plant Service]
+        [Plant Repository]
+        [Plant Model]
+    }
+
+    package "Seed Module" {
+        [Seed Controller]
+        [Seed Service]
+        [Seed Repository]
+        [Seed Model]
+    }
+
+    package "Producer Module" {
+        [Producer Controller]
+        [Producer Service]
+        [Producer Repository]
+        [Producer Model]
+    }
+
+    package "User Management Module" {
+        [User Controller]
+        [User Service]
+        [User Model]
+        [Role Model]
+    }
+
+    database "Database" as DB
+}
+
+' Zależności między modułami
+[Seed Service] --> [Plant Repository]
+[Seed Service] --> [Producer Repository]
+
+[Plant Repository] --> DB
+[Seed Repository] --> DB
+[Producer Repository] --> DB
+[User Model] --> DB
+[Role Model] --> DB
+
+@enduml
