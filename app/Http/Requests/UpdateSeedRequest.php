@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProducerRequest extends FormRequest
+class UpdateSeedRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return auth()->check();
+        return false;
     }
 
     /**
@@ -22,12 +22,7 @@ class UpdateProducerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'nip' => ['nullable', 'string', 'max:20'],
-            'phone' => ['nullable', 'string', 'max:20'],
-            'email' => ['nullable', 'email', 'max:255'],
-            'notes' => ['nullable', 'string'],
-            'www' => ['nullable', 'string', 'max:255'],
+            //
         ];
     }
 }

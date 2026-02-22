@@ -9,4 +9,12 @@ class Address extends Model
 {
     /** @use HasFactory<\Database\Factories\AddressFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'street',
+        'city',
+        'postal_code',
+        'country',
+    ];
+
 }

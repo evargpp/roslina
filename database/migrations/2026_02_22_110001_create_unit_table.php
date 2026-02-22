@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id();
 
-            $table->string('street')->nullable();   // ulica
-            $table->string('city')->nullable();     // miasto
-            $table->string('postal_code')->nullable(); // kod pocztowy
-            $table->string('country')->nullable();  // kraj
+            $table->string('name');    // nazwa jednostki (np. kg, szt., l)
+            $table->string('symbol'); // skrót jednostki (np. kg, szt., l)
 
             $table->timestamps();
         });
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('addresses');
+        Schema::dropIfExists('units');
     }
 };
