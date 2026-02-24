@@ -1,20 +1,19 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\ui;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class BackButton extends Component
+class ActionBar extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $action,
-        public string $name,
-        public string $alt = '',
+        public string $title,
+        public string $subtitle = '',
     ) {}
 
     /**
@@ -22,6 +21,6 @@ class BackButton extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.back-button');
+        return view('components.ui.action-bar');
     }
 }

@@ -1,30 +1,25 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\ui;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class EditButton extends Component
+class navNextButton extends Component
 {
-    /**
-     * Create a new component instance.
-     */
     public function __construct(
-        public string $action,
         public string $name,
+        public string $action,
         public string $alt = '',
-    )
-    {
-        //
-    }
+        public ?bool $disabled = null
+    ) {}
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.edit-button');
+        return view('components.ui.nav-next-button');
     }
 }

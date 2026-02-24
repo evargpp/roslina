@@ -8,60 +8,43 @@ use App\Http\Requests\UpdateUnitRequest;
 
 class UnitController extends Controller
 {
-    // Lista jednostek
     public function index()
     {
         $units = Unit::paginate(10);
         return view('units.index', compact('units'));
     }
 
-    // Pojedyncza jednostka
     public function show(Unit $unit)
     {
         return view('units.show', compact('unit'));
     }
 
-    // Formularz tworzenia
     public function create()
     {
         return view('units.create');
     }
 
-    // Zapis nowej jednostki
-    public function store(StoreUnitRequest $request)
-    {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'symbol' => 'required|string|max:10|unique:units,symbol',
-        ]);
-
-        Unit::create($data);
-
-        return redirect()->route('units.index')
-            ->with('success', 'Unit created successfully.');
-    }
-
-    // Formularz edycji
     public function edit(Unit $unit)
     {
         return view('units.edit', compact('unit'));
     }
 
-    // Aktualizacja jednostki
+    public function store(StoreUnitRequest $request)
+    {
+        $unit = Unit::create($request->validated());
+
+        return redirect()->route('units.edit', $unit)
+            ->with('success', 'Unit created successfully.');
+    }
+
     public function update(UpdateUnitRequest $request, Unit $unit)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'symbol' => 'required|string|max:10|unique:units,symbol,' . $unit->id,
-        ]);
+        $unit->update($request->validated());
 
-        $unit->update($data);
-
-        return redirect()->route('units.index')
+        return redirect()->route('units.edit', $unit)
             ->with('success', 'Unit updated successfully.');
     }
 
-    // Usuwanie jednostki
     public function destroy(Unit $unit)
     {
         $unit->delete();

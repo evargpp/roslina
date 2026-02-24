@@ -1,7 +1,8 @@
 <x-app-layout>
-  <x-slot name="header">
-    <h2 class="text-xl font-semibold">Jednostki miary</h2>
-  </x-slot>
+
+  <x-ui.action-bar :title="'Jednostki miary'" :subtitle="'Zarządzaj jednostkami miary'">
+    <x-ui.new-button :action="route('units.create')" name="Dodaj" alt="Dodaj nową jednostkę" />
+  </x-ui.action-bar>
 
   <div class="bg-white shadow rounded p-6">
 
@@ -10,11 +11,6 @@
         {{ session('success') }}
       </div>
     @endif
-
-    <a href="{{ route('units.create') }}"
-      class="rounded bg-red-600 px-3 py-2 text-sm text-white hover:bg-gray-900 mb-4 inline-block">
-      Dodaj jednostkę miary
-    </a>
 
     <table class="w-full border">
       <thead class="bg-gray-100">
@@ -28,13 +24,14 @@
         @foreach ($units as $unit)
           <tr>
             <td class="p-2 border">
-                <a href="{{ route('units.show', $unit) }}" class="text-blue-600">{{ $unit->name }}</a>
-                </td>
+              <a href="{{ route('units.show', $unit) }}" class="text-blue-600">{{ $unit->name }}</a>
+            </td>
             <td class="p-2 border">{{ $unit->symbol }}</td>
             <td class="p-2 border space-x-2">
               <a href="{{ route('units.edit', $unit) }}" class="text-blue-600">Edytuj</a>
 
-              <form method="POST" action="{{ route('units.destroy', $unit) }}" class="inline" onsubmit="return confirmDelete(this)">
+              <form method="POST" action="{{ route('units.destroy', $unit) }}" class="inline"
+                onsubmit="return confirmDelete(this)">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-600">
