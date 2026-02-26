@@ -34,7 +34,7 @@ class UnitController extends Controller
         $unit = Unit::create($request->validated());
 
         return redirect()->route('units.edit', $unit)
-            ->with('success', 'Unit created successfully.');
+            ->with('success', __('units.create.success'));
     }
 
     public function update(UpdateUnitRequest $request, Unit $unit)
@@ -42,7 +42,7 @@ class UnitController extends Controller
         $unit->update($request->validated());
 
         return redirect()->route('units.edit', $unit)
-            ->with('success', 'Unit updated successfully.');
+            ->with('success', __('units.update.success'));
     }
 
     public function destroy(Unit $unit)
@@ -50,6 +50,6 @@ class UnitController extends Controller
         $unit->delete();
 
         return redirect()->route('units.index')
-            ->with('success', 'Unit deleted successfully.');
+            ->with('success', __('units.destroy.success'));
     }
 }

@@ -1,11 +1,10 @@
 <x-app-layout>
 
-  <x-ui.action-bar :title="'Jednostki miary'" :subtitle="'Zarządzaj jednostkami miary'">
-    <x-ui.back-button :action="route('units.index')" name="Wróć" alt="Powrót do listy jednostek" />
-
-    <x-ui.save-button :action="route('units.update', $unit)" name="" alt="Zapisz jednostkę" formname="form_edit" />
-    <x-ui.preview-button :action="route('units.show', $unit)" name="" alt="Podgląd jednostki miary" />
-    <x-ui.delete-button :action="route('units.destroy', $unit->id)" name="" alt="Usuń jednostkę" />
+  <x-ui.action-bar :title="__('units.edit.title')" :subtitle="__('units.edit.subtitle')">
+    <x-ui.back-button :action="route('units.index')" :name="__('units.button.back.name')" :alt="__('units.button.back.alt')" />
+    <x-ui.save-button :action="route('units.update', $unit)" :name="__('units.button.save.name')" :alt="__('units.button.save.alt')" formname="form_edit" />
+    <x-ui.preview-button :action="route('units.show', $unit)" :name="__('units.button.preview.name')" :alt="__('units.button.preview.alt')" />
+    <x-ui.delete-button :action="route('units.destroy', $unit->id)" :name="__('units.button.delete.name')" :alt="__('units.button.delete.alt')" />
   </x-ui.action-bar>
 
   <div class="bg-white shadow rounded p-6">
@@ -16,8 +15,7 @@
       </div>
     @endif
 
-    <form method="POST" action="{{ isset($unit) ? route('units.update', $unit) : route('units.store') }}"
-      id="form_edit">
+    <form method="POST" action="{{ isset($unit) ? route('units.update', $unit) : route('units.store') }}" id="form_edit">
       @csrf
       @method('PUT')
 

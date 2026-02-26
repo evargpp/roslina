@@ -1,5 +1,5 @@
 <div class="mb-4">
-  <label class="block mb-1">Nazwa</label>
+  <label class="block mb-1">{{ __('units.form.name.label') }}</label>
   <input type="text" name="name" value="{{ old('name', $unit->name ?? '') }}" class="w-full border rounded p-2">
   @error('name')
     <div class="text-red-600">{{ $message }}</div>
@@ -7,7 +7,7 @@
 </div>
 
 <div class="mb-4">
-  <label class="block mb-1">Symbol</label>
+  <label class="block mb-1">{{ __('units.form.symbol.label') }}</label>
   <input type="text" name="symbol" value="{{ old('symbol', $unit->symbol ?? '') }}"
     class="w-full border rounded p-2">
   @error('symbol')

@@ -1,0 +1,16 @@
+@startuml
+
+class Unit {
+  +id:
+  +name:
+  +symbol:
+}
+
+class Address {
+   +id
+   +street
+   +city
+   +postal_code
+   +country
+}
+@enduml
