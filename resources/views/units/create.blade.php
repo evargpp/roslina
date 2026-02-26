@@ -6,7 +6,7 @@
   </x-ui.action-bar>
 
   <div class="bg-white shadow rounded p-6">
-    <form method="POST" action="{{ isset($unit) ? route('units.update', $unit) : route('units.store') }}"
+    <form method="POST" action="{{ route('units.store') }}"
       id="form_create">
       @csrf
       @include('units._form', ['unit' => null])

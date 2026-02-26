@@ -22,8 +22,10 @@ class UpdateUnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'symbol' => 'required|string|max:10|unique:units,symbol,' . $this->unit->id,
+            'country' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'postal_code' => 'required|string|max:10',
+            'street' => 'required|string|max:255',
         ];
     }
 }

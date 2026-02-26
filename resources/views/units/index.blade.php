@@ -51,7 +51,7 @@
 
   <script>
     function confirmDelete(form) {
-      return confirm('{{ __('units.button.delete.confirm') }}');
+      return confirm('{{ __('button.delete.confirm') }}');
     }
   </script>
 </x-app-layout>

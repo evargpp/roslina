@@ -1,4 +1,4 @@
-<form action="{{ $action }}" method="POST" onsubmit="return confirm('{{ __('units.button.delete.confirm') }}');">
+<form action="{{ $action }}" method="POST" onsubmit="return confirm('{{ $confirm }}');">
   @csrf
   @method('DELETE')
 

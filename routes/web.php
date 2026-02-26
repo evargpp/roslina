@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProducerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\AddressController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -27,4 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::resource('producers', ProducerController::class);
     Route::resource('units', UnitController::class);
+    Route::resource('addresses', AddressController::class);
 });

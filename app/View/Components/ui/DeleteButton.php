@@ -14,6 +14,7 @@ class DeleteButton extends Component
     public function __construct(
         public string $name,
         public string $action,
+        public string $confirm,
         public string $alt = '',
     ) {}
 

@@ -8,59 +8,48 @@ use App\Http\Requests\UpdateAddressRequest;
 
 class AddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $addresses = Address::paginate(10);
+        return view('addresses.index', compact('addresses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreAddressRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Address $address)
     {
-        //
+        return view('addresses.show', compact('address'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    public function create()
+    {
+        return view('addresses.create');
+    }
+
     public function edit(Address $address)
     {
-        //
+        return view('addresses.edit', compact('address'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    public function store(StoreAddressRequest $request)
+    {
+        $address = Address::create($request->validated());
+
+        return redirect()->route('addresses.edit', $address)
+            ->with('success', __('addresses.create.success'));
+    }
+
     public function update(UpdateAddressRequest $request, Address $address)
     {
-        //
+        $address->update($request->validated());
+
+        return redirect()->route('addresses.edit', $address)
+            ->with('success', __('addresses.update.success'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Address $address)
     {
-        //
+        $address->delete();
+
+        return redirect()->route('addresses.index')
+            ->with('success', __('addresses.destroy.success'));
     }
 }
