@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProducerRequest;
-use App\Http\Requests\UpdateAddressRequest;
+use App\Http\Requests\UpdateProducerRequest;
 use App\Models\Producer;
 use Illuminate\Http\Request;
 use App\Services\ProducerService;
@@ -15,23 +15,28 @@ class ProducerController extends Controller
     public function index()
     {
         $producers = Producer::paginate(10);
+
         return view('producers.index', compact('producers'));
     }
 
-    public function show(int $id)
+    public function show(Producer $producer)
     {
-        $producer = Producer::findOrFail($id);
-        return view('producers.show', compact('producer'));
+        $seeds = $producer->seeds()
+            ->with(['crop', 'unit'])
+            ->orderBy('name')
+            ->paginate(10);
+
+        return view('producers.show', compact('producer', 'seeds'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
         return view('producers.create');
     }
 
     public function edit(int $id)
     {
-        $producer = Producer::findOrFail($id);
+    $producer = Producer::findOrFail($id);
         return view('producers.edit', compact('producer'));
     }
 
@@ -43,9 +48,8 @@ class ProducerController extends Controller
             ->with('success', __('producers.create.success'));
     }
 
-    public function update(UpdateAddressRequest $request, int $id)
+    public function update(UpdateProducerRequest $request, Producer $producer)
     {
-        $producer = Producer::findOrFail($id);
         $producer->update($request->validated());
 
         return redirect()->route('producers.edit', $producer)

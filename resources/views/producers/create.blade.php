@@ -6,8 +6,7 @@
   </x-ui.action-bar>
 
   <div class="bg-white shadow rounded p-6">
-    <form method="POST" action="{{ route('producers.store') }}"
-      id="form_create">
+    <form method="POST" action="{{ route('producers.store') }}" id="form_create">
       @csrf
       @include('producers._form', ['producer' => null])
     </form>

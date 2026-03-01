@@ -11,7 +11,7 @@ class SeedController extends Controller
     public function index()
     {
         $seeds = \App\Models\Seed::query()
-        ->with(['species', 'producer', 'unit'])
+        ->with(['crop', 'producer', 'unit'])
         ->where('user_id', auth()->id())
         ->orderBy('name')
         ->paginate(10);
@@ -27,9 +27,11 @@ class SeedController extends Controller
     public function create()
     {
         return view('seeds.create', [
-            'species' => \App\Models\Species::orderBy('name')->get(),
+            'crops' => \App\Models\Crop::orderBy('name')->get(),
             'producers' => \App\Models\Producer::orderBy('name')->get(),
             'units' => \App\Models\Unit::orderBy('name')->get(),
+            'crop' => null,
+            'producer' => null,
         ]);
     }
 
@@ -37,9 +39,11 @@ class SeedController extends Controller
     {
         return view('seeds.edit', [
             'seed' => $seed,
-            'species' => \App\Models\Species::orderBy('name')->get(),
+            'crops' => \App\Models\Crop::orderBy('name')->get(),
             'producers' => \App\Models\Producer::orderBy('name')->get(),
             'units' => \App\Models\Unit::orderBy('name')->get(),
+            'crop' => null,
+            'producer' => null,
         ]);
     }
 

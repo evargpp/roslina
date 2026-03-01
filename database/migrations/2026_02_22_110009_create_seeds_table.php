@@ -35,8 +35,8 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->foreignId('species_id')
-                ->constrained('species')
+            $table->foreignId('crop_id')
+                ->constrained('crops')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 

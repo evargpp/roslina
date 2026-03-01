@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('species.index')" :active="request()->routeIs('species.*')">
+                    <x-nav-link :href="route('crops.index')" :active="request()->routeIs('crops.*')">
                         {{ __('Gatunki') }}
                     </x-nav-link>
                 </div>

@@ -14,7 +14,7 @@ class NewButton extends Component
     public function __construct(
         public string $name,
         public string $action,
-        public string $alt = ''
+        public string $alt = '',
     ) {}
 
     /**

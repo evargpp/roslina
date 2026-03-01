@@ -6,37 +6,45 @@
   @enderror
 </div>
 
-{{-- SPECIES --}}
-<div>
-  <label>{{ __('seeds.form.species.label') }}</label>
-  <select name="species_id">
-    <option value="">-- select species --</option>
-    @foreach ($species as $item)
-      <option value="{{ $item->id }}" @selected(old('species_id', $seed->species_id ?? null) == $item->id)>
-        {{ $item->name }}
-      </option>
-    @endforeach
-  </select>
-  @error('species_id')
-    <div class="text-red-600">{{ $message }}</div>
-  @enderror
-</div>
+{{-- CROP --}}
+@if ($crop)
+  <input type="hidden" name="crop_id" value="{{ $crop->id }}">
+@else
+  <div>
+    <label>{{ __('seeds.form.crop.label') }}</label>
+    <select name="crop_id">
+      <option value="">-- select crop --</option>
+      @foreach ($crops as $item)
+        <option value="{{ $item->id }}" @selected(old('crop_id', $seed->crop_id ?? null) == $item->id)>
+          {{ $item->name }}
+        </option>
+      @endforeach
+    </select>
+    @error('crop_id')
+      <div class="text-red-600">{{ $message }}</div>
+    @enderror
+  </div>
+@endif
 
 {{-- PRODUCER --}}
-<div>
-  <label>{{ __('seeds.form.producer.label') }}</label>
-  <select name="producer_id">
-    <option value="">-- select producer --</option>
-    @foreach ($producers as $item)
-      <option value="{{ $item->id }}" @selected(old('producer_id', $seed->producer_id ?? null) == $item->id)>
-        {{ $item->name }}
-      </option>
-    @endforeach
-  </select>
-  @error('producer_id')
-    <div class="text-red-600">{{ $message }}</div>
-  @enderror
-</div>
+@if ($producer)
+  <input type="hidden" name="producer_id" value="{{ $producer->id }}">
+@else
+  <div>
+    <label>{{ __('seeds.form.producer.label') }}</label>
+    <select name="producer_id">
+      <option value="">-- select producer --</option>
+      @foreach ($producers as $item)
+        <option value="{{ $item->id }}" @selected(old('producer_id', $seed->producer_id ?? null) == $item->id)>
+          {{ $item->name }}
+        </option>
+      @endforeach
+    </select>
+    @error('producer_id')
+      <div class="text-red-600">{{ $message }}</div>
+    @enderror
+  </div>
+@endif
 
 {{-- QUANTITY + UNIT --}}
 <div>

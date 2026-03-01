@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Species;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Crop;
 
-class SpeciesSeeder extends Seeder
+class CropSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Species::updateOrCreate(
+        Crop::updateOrCreate(
             [
                 'name' => 'Papryka',
                 'latin_name' => 'Capsicum annuum',
@@ -21,13 +21,12 @@ class SpeciesSeeder extends Seeder
             ]
         );
 
-        Species::updateOrCreate(
+        Crop::updateOrCreate(
             [
                 'name' => 'Pomidor',
                 'latin_name' => 'Solanum lycopersicum',
                 'desc' => 'Pomidor to popularna roślina uprawna, znana ze swoich jaskrawych owoców, które są często używane w kuchni na całym świecie. Jest bogaty w witaminę C i lycopene.',
             ]
         );
-
     }
 }

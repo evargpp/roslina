@@ -20,6 +20,9 @@ return [
     'button.preview.name' => 'Podgląd',
     'button.preview.alt' => 'Podgląd szczegółów tego producenta',
 
+    'button.new_seed.name' => 'Nowe nasiona',
+    'button.new_seed.alt' => 'Dodaj nowe nasiona dla tego producenta',
+
     'index.title' => 'Producenci',
     'index.subtitle' => 'Zarządzaj producentami',
     'index.table.name' => 'Nazwa producenta',

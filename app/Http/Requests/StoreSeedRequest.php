@@ -23,7 +23,7 @@ class StoreSeedRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'species_id' => ['required', 'exists:species,id'],
+            'crop_id' => ['required', 'exists:crops,id'],
             'producer_id' => ['required', 'exists:producers,id'],
             'unit_id' => ['required', 'exists:units,id'],
             'quantity' => ['required', 'numeric', 'min:0'],

@@ -8,7 +8,7 @@ use App\Models\Seed;
 use App\Models\Unit;
 use App\Models\Producer;
 use App\Models\User;
-use App\Models\Species;
+use App\Models\Crop;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Seed>
@@ -23,7 +23,7 @@ class SeedFactory extends Factory
         $unit = Unit::inRandomOrder()->first() ?? Unit::factory()->create();
         $producer = Producer::inRandomOrder()->first() ?? Producer::factory()->create();
         $user = User::inRandomOrder()->first() ?? User::factory()->create();
-        $species = Species::inRandomOrder()->first() ?? Species::factory()->create();
+        $crop = Crop::inRandomOrder()->first() ?? Crop::factory()->create();
 
         $quantity = $this->faker->numberBetween(1, 1000);
 
@@ -36,7 +36,7 @@ class SeedFactory extends Factory
             'acquired_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
             'expires_at'  => $this->faker->dateTimeBetween('now', '+2 years'),
             'user_id'     => $user->id,
-            'species_id'  => $species->id,
+            'crop_id'     => $crop->id,
         ];
     }
 }

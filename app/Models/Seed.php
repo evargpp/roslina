@@ -14,7 +14,7 @@ class Seed extends Model
     protected $fillable = [
         'name',
         'desc',
-        'species_id',
+        'crop_id',
         'producer_id',
         'unit_id',
         'quantity',
@@ -38,8 +38,8 @@ class Seed extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function species()
+    public function crop()
     {
-        return $this->belongsTo(Species::class);
+        return $this->belongsTo(Crop::class);
     }
 }

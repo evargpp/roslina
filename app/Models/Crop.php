@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Species extends Model
+class Crop extends Model
 {
-    /** @use HasFactory<\Database\Factories\SpeciesFactory> */
+    /** @use HasFactory<\Database\Factories\CropFactory> */
     use HasFactory;
 
     protected $fillable = [

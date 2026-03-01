@@ -15,7 +15,7 @@
     <table class="w-full border">
       <thead class="bg-gray-100">
         <tr>
-          <th class="p-2 border">{{ __('seeds.index.table.species_name') }}</th>
+          <th class="p-2 border">{{ __('seeds.index.table.crop_name') }}</th>
           <th class="p-2 border">{{ __('seeds.index.table.producer_name') }}</th>
           <th class="p-2 border">{{ __('seeds.index.table.quantity') }}</th>
           <th class="p-2 border">{{ __('seeds.index.table.expires_at') }}</th>
@@ -27,7 +27,7 @@
 
           <tr>
             <td class="p-2 border">
-              <a href="{{ route('seeds.show', $seed) }}" class="text-blue-600">{{ $seed->species->name }}</a>
+              <a href="{{ route('seeds.show', $seed) }}" class="text-blue-600">{{ $seed->crop->name }}</a>
             </td>
             <td class="p-2 border">{{ $seed->producer->name }}</td>
             <td class="p-2 border">{{ $seed->quantity }} {{ $seed->unit->name }}</td>
@@ -57,7 +57,7 @@
 
   <script>
     function confirmDelete(form) {
-      return confirm('{{ __('species.button.delete.confirm') }}');
+      return confirm('{{ __('crops.button.delete.confirm') }}');
     }
   </script>
 </x-app-layout>
