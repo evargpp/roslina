@@ -22,7 +22,13 @@ class UpdateSeedRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'species_id' => ['required', 'exists:species,id'],
+            'producer_id' => ['required', 'exists:producers,id'],
+            'unit_id' => ['required', 'exists:units,id'],
+            'quantity' => ['required', 'numeric', 'min:0'],
+            'expires_at' => ['nullable', 'date'],
+            'desc' => ['nullable', 'string'],
         ];
     }
 }

@@ -16,6 +16,20 @@ class ProducerSeeder extends Seeder
     {
         $producers = [
             [
+                'name'  => 'nieznany',
+                'nip'   => '0000000000',
+                'phone' => '',
+                'www'   => '',
+                'email' => '',
+            ],
+            [
+                'name'  => 'własny',
+                'nip'   => '0000000001',
+                'phone' => '',
+                'www'   => '',
+                'email' => '',
+            ],
+            [
                 'name'  => 'PlantiCo',
                 'nip'   => '5250001234',
                 'phone' => '+48 22 123 45 67',

@@ -7,6 +7,8 @@ use App\Http\Controllers\ProducerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\SpeciesController;
+use App\Http\Controllers\SeedController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -29,4 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('producers', ProducerController::class);
     Route::resource('units', UnitController::class);
     Route::resource('addresses', AddressController::class);
+    Route::resource('producers', ProducerController::class);
+    Route::resource('species', SpeciesController::class);
+    Route::resource('seeds', SeedController::class);
 });

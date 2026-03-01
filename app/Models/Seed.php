@@ -13,10 +13,14 @@ class Seed extends Model
 
     protected $fillable = [
         'name',
-        'description',
-        'user_id',
-        'unit_id',
+        'desc',
+        'species_id',
         'producer_id',
+        'unit_id',
+        'quantity',
+        'expires_at',
+        'notes',
+        'user_id',
     ];
 
     public function unit(): BelongsTo
@@ -32,5 +36,10 @@ class Seed extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function species()
+    {
+        return $this->belongsTo(Species::class);
     }
 }

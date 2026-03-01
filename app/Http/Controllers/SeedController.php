@@ -8,59 +8,65 @@ use App\Http\Requests\UpdateSeedRequest;
 
 class SeedController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $seeds = \App\Models\Seed::query()
+        ->with(['species', 'producer', 'unit'])
+        ->where('user_id', auth()->id())
+        ->orderBy('name')
+        ->paginate(10);
+
+        return view('seeds.index', compact('seeds'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreSeedRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Seed $seed)
     {
-        //
+        return view('seeds.show', compact('seed'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    public function create()
+    {
+        return view('seeds.create', [
+            'species' => \App\Models\Species::orderBy('name')->get(),
+            'producers' => \App\Models\Producer::orderBy('name')->get(),
+            'units' => \App\Models\Unit::orderBy('name')->get(),
+        ]);
+    }
+
     public function edit(Seed $seed)
     {
-        //
+        return view('seeds.edit', [
+            'seed' => $seed,
+            'species' => \App\Models\Species::orderBy('name')->get(),
+            'producers' => \App\Models\Producer::orderBy('name')->get(),
+            'units' => \App\Models\Unit::orderBy('name')->get(),
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    public function store(StoreSeedRequest $request)
+    {
+        $seed = Seed::create([
+            ...$request->validated(),
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('seeds.edit', $seed)
+            ->with('success', __('seeds.create.success'));
+    }
+
     public function update(UpdateSeedRequest $request, Seed $seed)
     {
-        //
+        $seed->update($request->validated());
+
+        return redirect()->route('seeds.edit', $seed)
+            ->with('success', __('seeds.update.success'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Seed $seed)
     {
-        //
+        $seed->delete();
+
+        return redirect()->route('seeds.index')
+            ->with('success', __('seeds.destroy.success'));
     }
 }

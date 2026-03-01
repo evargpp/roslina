@@ -29,6 +29,23 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('producers.index')" :active="request()->routeIs('producers.*')">
+                        {{ __('Producenci') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('species.index')" :active="request()->routeIs('species.*')">
+                        {{ __('Gatunki') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('seeds.index')" :active="request()->routeIs('seeds.*')">
+                        {{ __('Nasiona') }}
+                    </x-nav-link>
+                </div>
 
             </div>
 

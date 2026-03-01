@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->text('notes')->nullable();
             $table->date('acquired_at')->nullable();     // data pozyskania
             $table->date('expires_at')->nullable();      // data trwałości
             $table->decimal('quantity', 10, 2)->nullable();    // ilość
+            $table->text('desc')->nullable();
 
             $table->foreignId('unit_id')
                 ->constrained('units')
@@ -32,6 +32,11 @@ return new class extends Migration
 
             $table->foreignId('producer_id')
                 ->constrained('producers')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->foreignId('species_id')
+                ->constrained('species')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
