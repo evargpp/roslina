@@ -25,4 +25,8 @@ class Producer extends Model
         return $this->hasMany(Seed::class);
     }
 
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

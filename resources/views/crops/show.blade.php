@@ -12,4 +12,15 @@
       <p><span class="font-semibold">{{ __('crops.show.desc') }}:</span> {{ $crop->desc }}</p>
     </div>
   </div>
+
+  @if ($crop->images->isNotEmpty())
+    <div class="images">
+      @foreach ($crop->images as $image)
+        <img src="{{ asset('storage/' . $image->path) }}" alt="Zdjęcie {{ $crop->name }}"
+          style="max-width:200px; margin:10px;">
+      @endforeach
+    </div>
+  @else
+    <p>Brak zdjęć.</p>
+  @endif
 </x-app-layout>

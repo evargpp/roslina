@@ -10,6 +10,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\SeedController;
 use App\Http\Controllers\ProducerSeedController;
 use App\Http\Controllers\CropController;
+use App\Http\Controllers\ImageController;
 use App\Models\Crop;
 
 Route::get('/', function () {
@@ -43,4 +44,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('crops', CropController::class);
     Route::resource('seeds', SeedController::class);
+
+    Route::post('/crops/{crop}/images', [ImageController::class, 'storeForCrop'])->name('crops.images.store');
+    Route::post('/producers/{producer}/images', [ImageController::class, 'storeForProducer'])->name('producers.images.store');
+    Route::post('/addresses/{address}/images', [ImageController::class, 'storeForAddress'])->name('addresses.images.store');
+    Route::delete('/images/{image}', [ImageController::class, 'destroy'])->name('images.destroy');
 });

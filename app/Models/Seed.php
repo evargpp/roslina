@@ -42,4 +42,9 @@ class Seed extends Model
     {
         return $this->belongsTo(Crop::class);
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

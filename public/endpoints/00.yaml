@@ -1,0 +1,85 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/test
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message":"API dzia\u0142a \ud83d\ude80"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:5173'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImQvSGxRdjB4MUlueGZXZ3c3TWhkSlE9PSIsInZhbHVlIjoiWmJDcWJEZ3ZyNU1HeFdUcFdTVDdKR09YTC9RbGZrd1M3aDdOVDM2MUtaOXgrTE1MWERTZUh4KzkvVE9OdlEydG9sWHo5S2N5NUtaNGNwYmxZZjRnNnNKcks5TVhEOWpCUWhScGFFY1oweVFaRUgvdVkvSXpUTFQvdm5ON05ERmwiLCJtYWMiOiIyNzgwY2ExYjNkOGMzYjQ5MTBiZWMwNTQ0MTIyMTcxNzRlMDZkN2MxZjQyYmYwMWEzZWU5OGY0MWRjYWY5Nzc0IiwidGFnIjoiIn0%3D; expires=Wed, 04 Mar 2026 20:11:00 GMT; Max-Age=7200; path=/; samesite=lax; laravel-session=eyJpdiI6Imx1ZFFpc05QbnRoZ0kybm04eENXT3c9PSIsInZhbHVlIjoiNHlyOFpUWE94Q1ZPbFBHNUpuSm0wM2wzMnJQdEZLM0wrbkE0dnRzTjVvVm5DTER1U1h1QXlqeFNCbWRUY0VUWnFYTC94aUFjbWNOZDZheWtja3JYSTRpUTNidkZFZTJPZERSa05EOTRLalJ5L281cTFrV0xWN01YcXFUbjFWaFoiLCJtYWMiOiIyOThhZTcyYTE5Yzc5NTEwMDA2ZGYxNGQ1N2Q1NmMxNzEwZWRmZjg5MWE2ZDcxMWYzZjI2ODI1Njk0YzFiNTAzIiwidGFnIjoiIn0%3D; expires=Wed, 04 Mar 2026 20:11:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/test2
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message":"API2 dzia\u0142a \ud83d\ude80"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:5173'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ikc3QllIWXcybmpYVjJpTUlpNUNmOEE9PSIsInZhbHVlIjoiU3hYck1pQS93UkpWQ3IxS3VycVRIcFZLNC9tVVNVUlFmTVBncDJhSnRBeGg0VitEWmhXVHdtUlg2U1IzUjdBNDNBZXVhdTZZTVg4cmNHN2ZPdStleWZLTWZHMGZIQjZTOEIxa0g2UHZYWXJZSXMzL0pxM1JlVjEvM0xsMFphOE4iLCJtYWMiOiJlYWNhNzdkYWJkNzJlOGQyODZkOTFkYmVlM2NkMzhlNjUwYWQ2MmY4ZjA2ZTQ3NTUwY2M1OThkZjY2ODZhNWJhIiwidGFnIjoiIn0%3D; expires=Wed, 04 Mar 2026 20:11:00 GMT; Max-Age=7200; path=/; samesite=lax; laravel-session=eyJpdiI6IlQyTmtjc0xPWEJFejMxWjBYaVArQXc9PSIsInZhbHVlIjoiOHZXYVFtZHErS2RLMTdVSnZJaWs5ZjV2Qk5mOXNlUy96dVpaV2w1MWxCSWExRjJiVlgxQUU0alpzR21oOThzR1dYb2xxMDI0V0RIeUxQd1lPTVZ0Zld0R1hUcGdGeGZQeVEwaUZ2S1Q0dTdIUWd1SE5DZGhtZjh6MEo1OWZXTjUiLCJtYWMiOiIwMTQ3MmU0ZGJkNjVjYTM3YWU2OWUzNGYxMzJkNTNmZmNlMzI1NTAxYjVhNzJiM2Y2NzgxZDc1YzY5NTJlYzI3IiwidGFnIjoiIn0%3D; expires=Wed, 04 Mar 2026 20:11:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

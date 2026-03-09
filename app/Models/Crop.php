@@ -15,4 +15,19 @@ class Crop extends Model
         'latin_name',
         'desc',
     ];
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function seeds()
+    {
+        return $this->hasMany(Seed::class);
+    }
+
+    public function producers()
+    {
+        return $this->hasManyThrough(Producer::class, Seed::class);
+    }
 }

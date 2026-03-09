@@ -16,6 +16,7 @@ class CropController extends Controller
 
     public function show(Crop $crop)
     {
+        $crop->load(['images', 'seeds', 'seeds.producer', 'seeds.unit']);
         return view('crops.show', compact('crop'));
     }
 
